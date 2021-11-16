@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Title from './components/Title/Title';
+import Button from './components/Button/Button'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+    state = {
+
+
+      toggle:false
+         
+    }
+
+
+    // clickHndler = () => {
+
+             
+    // }
+
+    render(){
+
+      const change = !this.state.toggle;
+      return(
+        <div className="container">
+           <Button class="btn" value={ !this.state.toggle ? 'close' : 'create'} type='button' click={() => this.setState({toggle: !this.state.toggle})} />
+         
+          {
+            change ?  <Title value="Admin dashboard" /> : null
+          }
+
+        </div>
+      );
+    }
+
 }
 
 export default App;
